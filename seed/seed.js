@@ -261,7 +261,7 @@ const seed = async () => {
 
     const userExists = await User.findOne({ email: 'admin@vinay.com' });
     if (!userExists) {
-      await User.create({ email: 'admin@vinay.com', password: 'admin123' });
+      await User.create({ email: 'vinayambekar.b@gmail.com', password: 'Vinay@12345' });
       console.log('Default user created (admin@vinay.com / admin123)');
     } else {
       console.log('Default user already exists, skipping');

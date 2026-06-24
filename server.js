@@ -3,6 +3,7 @@ dotenv.config();
 
 const express = require('express');
 const cors = require('cors');
+const passport = require('./config/passport');
 const connectDB = require('./config/db');
 
 const authRoutes = require('./routes/auth');
@@ -15,11 +16,13 @@ const projectRoutes = require('./routes/project');
 const serviceRoutes = require('./routes/service');
 const pdfTemplateRoutes = require('./routes/pdfTemplate');
 const contactFormRoutes = require('./routes/contactForm');
+const chatRoutes = require('./routes/chat');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(passport.initialize());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/home', homeRoutes);
@@ -31,6 +34,7 @@ app.use('/api/project', projectRoutes);
 app.use('/api/service', serviceRoutes);
 app.use('/api/pdf-template', pdfTemplateRoutes);
 app.use('/api/contact-form', contactFormRoutes);
+app.use('/api/chat', chatRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
