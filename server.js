@@ -17,6 +17,7 @@ const serviceRoutes = require('./routes/service');
 const pdfTemplateRoutes = require('./routes/pdfTemplate');
 const contactFormRoutes = require('./routes/contactForm');
 const chatRoutes = require('./routes/chat');
+const uploadRoutes = require('./routes/upload');
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use('/api/service', serviceRoutes);
 app.use('/api/pdf-template', pdfTemplateRoutes);
 app.use('/api/contact-form', contactFormRoutes);
 app.use('/api/chat', chatRoutes);
+app.use('/api/upload', uploadRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
