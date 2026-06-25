@@ -10,7 +10,7 @@ const PdfTemplate = require('../models/PdfTemplate');
 
 const router = express.Router();
 
-const INVOKE_URL = 'https://integrate.api.nvidia.com/v1/chat/completions';
+const INVOKE_URL = `${process.env.AI_BASE_URL || 'https://integrate.api.nvidia.com/v1'}/chat/completions`;
 
 async function getPortfolioContext() {
   const [home, about, education, experience, project, service, resume] = await Promise.all([
